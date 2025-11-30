@@ -1,0 +1,157 @@
+# AeroSpace config - i3wm-like keybindings
+# Reference: https://nikitabobko.github.io/AeroSpace/guide
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Mouse follows focus (like i3)
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Gaps (similar to your yabai setup)
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.right = 8
+outer.bottom = 8
+outer.top = 8
+
+# Main mode keybindings (using alt as mod since cmd conflicts with macOS)
+# Note: In AeroSpace, 'alt' = Option key, 'cmd' = Command key
+# Using 'alt' here to avoid conflicts with macOS system shortcuts
+[mode.main.binding]
+
+# Change focus (like i3: $mod+hjkl)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Arrow key alternatives for focus
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
+
+# Move focused window (like i3: $mod+Shift+hjkl)
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Arrow key alternatives for move
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
+
+# Join with direction (replaces split - works better with normalizations enabled)
+alt-z = 'join-with right'   # join horizontally
+alt-v = 'join-with down'    # join vertically
+
+# Fullscreen toggle (like i3: $mod+f)
+alt-f = 'fullscreen'
+
+# Layout changes (like i3: $mod+s, $mod+w, $mod+e)
+alt-s = 'layout v_accordion'  # stacking equivalent
+alt-w = 'layout h_accordion'  # tabbed equivalent
+alt-e = 'layout tiles horizontal vertical'  # toggle split
+
+# Toggle floating/tiling (like i3: $mod+Shift+space)
+alt-shift-space = 'layout floating tiling'
+
+# Join with left (useful for manual tiling)
+alt-a = 'join-with left'
+
+# Open terminal (like i3: $mod+Return)
+alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+
+# Close window (like i3: $mod+Shift+q)
+alt-shift-q = 'close --quit-if-last-window'
+
+# Switch to workspace (like i3: $mod+1-0)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
+
+# Move window to workspace (like i3: $mod+Shift+1-0)
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
+
+# Move entire workspace to next monitor (like i3: $mod+m)
+alt-m = 'move-workspace-to-monitor --wrap-around next'
+
+# Reload config (like i3: $mod+Shift+c)
+alt-shift-c = 'reload-config'
+
+# Enter resize mode (like i3: $mod+r)
+alt-r = 'mode resize'
+
+# Balance window sizes
+alt-b = 'balance-sizes'
+
+# Back and forth workspace switching
+alt-tab = 'workspace-back-and-forth'
+
+# Resize mode (like i3 resize mode)
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+
+left = 'resize width -50'
+down = 'resize height +50'
+up = 'resize height -50'
+right = 'resize width +50'
+
+# Finer resize with shift
+shift-h = 'resize width -10'
+shift-j = 'resize height +10'
+shift-k = 'resize height -10'
+shift-l = 'resize width +10'
+
+# Exit resize mode (like i3: Enter, Escape, or $mod+r)
+enter = 'mode main'
+esc = 'mode main'
+alt-r = 'mode main'
+
+# Apps to float by default (like yabai rules)
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.archiveutility'
+run = 'layout floating'
