@@ -22,3 +22,11 @@ alias gb="python3 ~/repos/branch_checkout.py"
 alias pt="python3 ~/repos/run_test.py"
 alias lint="python3 ~/repos/run_linter.py"
 alias clean-local-branches="~/repos/clean_branches.sh"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# --- TutorCruncher shell env (aliases + secrets) ---
+# Sourced from ~/dotfiles/tutorcruncher (see tutorcruncher/SETUP.md).
+# Loaded last, so its alias/function definitions override the ones above.
+[ -f ~/.zshrc_aliases_tc_imported_by_zshrc ] && . ~/.zshrc_aliases_tc_imported_by_zshrc
+[ -f ~/.secrets ] && source ~/.secrets

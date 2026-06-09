@@ -1,5 +1,4 @@
 # Django Shortcuts
-alias src="source env/bin/activate"
 rs() { pkill -f 'manage.py runserver' 2>/dev/null; sleep 0.5; uv run ./manage.py runserver "$@"; }
 alias rw="pkill -f rqworker 2>/dev/null; sleep 0.5; python manage.py rqworker high default low"
 alias lsh="uv run ./manage.py shell_plus"
@@ -114,10 +113,10 @@ export DJ_DEBUG="TRUE"
 export DJDB="TRUE"
 
 # Custom Aliase
-alias cdrepos="cd $HOME/repos"
-alias cdtc2="cd $HOME/repos/TutorCruncher2 && src"
-alias cdher="cd $HOME/repos/hermes"
-alias cdm2="cd $HOME/repos/morpheus && src"
+alias cdrepos="cd $HOME/pager"
+alias cdtc2="cd $HOME/pager/TutorCruncher2"
+alias cdher="cd $HOME/pager/hermes"
+alias cdm2="cd $HOME/pager/morpheus"
 
 # Redis / Postgres restart — Mac (brew) vs Linux (apt/systemctl)
 if [[ "$OSTYPE" == darwin* ]]; then
