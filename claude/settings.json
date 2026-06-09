@@ -1,0 +1,40 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir // .cwd // \"\"'); dir=$(basename \"$cwd\"); model=$(echo \"$input\" | jq -r '.model.display_name // \"\"'); remaining=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // empty'); ctx_info=\"\"; [ -n \"$remaining\" ] && ctx_info=\" ctx:$(printf '%.0f' \"$remaining\")%\"; git_branch=\"\"; if [ -n \"$cwd\" ] && GIT_OPTIONAL_LOCKS=0 git -C \"$cwd\" rev-parse --is-inside-work-tree >/dev/null 2>&1; then branch=$(GIT_OPTIONAL_LOCKS=0 git -C \"$cwd\" symbolic-ref --short HEAD 2>/dev/null); if [ -n \"$branch\" ]; then dirty=\"\"; { GIT_OPTIONAL_LOCKS=0 git -C \"$cwd\" diff --quiet 2>/dev/null && GIT_OPTIONAL_LOCKS=0 git -C \"$cwd\" diff --cached --quiet 2>/dev/null; } || dirty=\" \\033[0;33m✗\"; git_branch=\" \\033[1;34mgit:(\\033[0;31m${branch}\\033[1;34m)${dirty}\\033[0m\"; fi; fi; printf \"\\033[1;32m➜\\033[0m \\033[0;36m%s\\033[0m%s%s %s\\n\" \"$dir\" \"$git_branch\" \"$ctx_info\" \"$model\""
+  },
+  "enabledPlugins": {
+    "codex@openai-codex": true,
+    "warp@claude-code-warp": true
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "xhigh",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "editorMode": "vim",
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
+}

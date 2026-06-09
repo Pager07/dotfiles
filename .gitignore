@@ -1,0 +1,18 @@
+# --- Claude Code / secrets — NEVER commit these ---
+# Auth & credential blobs (re-login on each machine instead)
+**/.credentials.json
+**/auth.json
+**/.claude.json
+**/.claude.json.backup
+
+# Any stray env / key files
+*.pem
+*.key
+.env
+.env.*
+*secret*
+*credential*
+
+# Python bytecode
+__pycache__/
+*.pyc

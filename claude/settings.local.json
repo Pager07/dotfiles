@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(systemctl --user status:*)",
+      "Bash(pactl list sinks short:*)",
+      "Bash(amixer:*)",
+      "Bash(amixer scontrols:*)",
+      "Bash(pactl list:*)",
+      "Bash(pactl get-default-sink:*)",
+      "Bash(pactl set-default-sink:*)",
+      "Bash(paplay:*)",
+      "Bash(sudo apt update:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(xrandr:*)",
+      "WebSearch",
+      "Bash(lsmod:*)",
+      "Bash(dpkg:*)",
+      "Bash(sudo modprobe:*)",
+      "Bash(lsblk:*)",
+      "Bash(sudo umount:*)",
+      "Bash(sudo mount:*)",
+      "Bash(sudo blkid:*)",
+      "Bash(mount:*)",
+      "Bash(lsof:*)",
+      "Bash(fuser:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
