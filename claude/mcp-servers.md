@@ -38,7 +38,9 @@ claude mcp add logfire-tutorcruncher-prod \
 
 ### Logfire — TutorCruncher UI 2.0
 ```bash
-claude mcp add logfire-tutorcruncher-ui2.0 \
+# NB: server name must not contain a dot ('.') — the CLI only allows letters,
+# numbers, hyphens and underscores. Use 'ui2', not 'ui2.0'.
+claude mcp add logfire-tutorcruncher-ui2 \
   --env LOGFIRE_READ_TOKEN=<LOGFIRE_UI2_TOKEN> \
   -- uvx logfire-mcp@latest
 ```
