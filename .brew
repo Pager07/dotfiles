@@ -29,6 +29,18 @@ uv          # Python package/venv manager + interpreter installer
             # Standalone installer (no Homebrew):
             #   curl -LsSf https://astral.sh/uv/install.sh | sh
 
+# ============================================================
+# TUTORCRUNCHER (TC2) DEV
+# Backend services for running TutorCruncher2 locally.
+# Start as services:  brew services start postgresql@16 redis
+# ============================================================
+postgresql@16   # database (keg-only / versioned)
+redis           # job queue (RQ), caching, email outbox
+yarn            # frontend assets (needs node)
+# wkhtmltopdf   # PDF generation — REMOVED from Homebrew (upstream archived).
+#               # Install the .pkg from github.com/wkhtmltopdf/packaging/releases
+#               # only when you need PDF features.
+
 # ---- Casks (GUI apps) ----
 # aerospace — tiling window manager. Needs a tap first:
 #   brew tap nikitabobko/tap
