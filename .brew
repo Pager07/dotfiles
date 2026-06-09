@@ -19,6 +19,16 @@ fzf
 ripgrep
 lazygit
 
+# ============================================================
+# PROGRAMMING / DEV TOOLING
+# Language runtimes & project tooling.
+# ============================================================
+uv          # Python package/venv manager + interpreter installer
+            #   uv python install 3.x   -> install an interpreter
+            #   uv venv --python 3.x    -> create a pinned venv
+            # Standalone installer (no Homebrew):
+            #   curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # ---- Casks (GUI apps) ----
 # aerospace — tiling window manager. Needs a tap first:
 #   brew tap nikitabobko/tap
