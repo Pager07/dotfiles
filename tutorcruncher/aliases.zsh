@@ -93,7 +93,7 @@ alias gs="git status"
 alias gp="git pull"
 
 # Script shortcuts
-alias gb="python3 ~/repos/branch_checkout.py"
+alias gb="uv run --script ~/repos/branch_checkout.py"
 alias pt="uv run python ~/repos/run_test.py"
 alias lint="python3 ~/repos/run_linter.py"
 alias litn="python3 ~/repos/run_linter.py"
