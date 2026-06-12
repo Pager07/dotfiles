@@ -19,17 +19,12 @@ link() {  # link <source-in-repo> <target-in-~/.claude>
 }
 
 echo "==> Installing Claude config from $REPO_DIR"
-mkdir -p "$CLAUDE_DIR/skills"
-
 echo "-- settings"
 link "$REPO_DIR/settings.json"       "$CLAUDE_DIR/settings.json"
 link "$REPO_DIR/settings.local.json" "$CLAUDE_DIR/settings.local.json"
 
-echo "-- skills (symlinked individually so other local skills are left alone)"
-for d in "$REPO_DIR"/skills/*/; do
-  name="$(basename "$d")"
-  link "${d%/}" "$CLAUDE_DIR/skills/$name"
-done
+echo "-- skills (whole folder linked, so new skills auto-land in the repo)"
+link "$REPO_DIR/skills" "$CLAUDE_DIR/skills"
 
 echo "-- agents"
 mkdir -p "$CLAUDE_DIR/agents"
